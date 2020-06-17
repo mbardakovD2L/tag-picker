@@ -39,5 +39,6 @@
     "@brightspace-ui/core": "^1",
     "@webcomponents/webcomponentsjs": "^2",
     "lit-element": "^2"
-  }
+  },
+  "version": "0.0.0"
 }
