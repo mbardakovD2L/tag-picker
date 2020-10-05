@@ -8,6 +8,8 @@ import '@brightspace-ui/core/components/inputs/input-select-styles.js';
 // import '../behavior/localize-behavior.js';
 // import '../behavior/mr-aria-behavior.js';
 import { css, html, LitElement } from 'lit-element/lit-element.js';
+// import { sharedStyle } from 'somewhere/sharedStyles.js';
+// import { classMap } from 'lit-html/directives/class-map.js';
 
 class TagPicker extends LitElement {
 
@@ -17,13 +19,15 @@ class TagPicker extends LitElement {
 				type: String
 			},
 			allowFreeform: {
-				type: Boolean
+				type: Boolean,
+				attribute: 'new-prop'
 			},
 			data: {
 				type: Array,
 			},
 			inputFocused: {
 				type: Boolean,
+				attribute: 'input-focused'
 			},
 			label: {
 				type: String,
@@ -54,6 +58,7 @@ class TagPicker extends LitElement {
 			},
 			filteredData: {
 				type: Array,
+				attribute: 'filtered-data'
 			},
 			_inputTarget: {
 				type: Object
@@ -248,7 +253,8 @@ class TagPicker extends LitElement {
 			width: 100%;
 			margin-top: -1px;
 		}
-		`;
+		`; // return an array if you want shared styles as well as your own
+		// e.g. return [sharedStyles, css`host:blah`]
 	}
 
 	constructor() {
@@ -295,6 +301,7 @@ class TagPicker extends LitElement {
 		this._uniqueId = newId;
 	}
 
+	// <div class="${classMap(welcomeClasses)}" where "WelcomeClasses" is an object where the keys are strings and the values are true/false
 	render() {
 		return html`
 		<div class="content js-refocusTarget">
@@ -339,7 +346,7 @@ class TagPicker extends LitElement {
 	</iron-dropdown> -->
 	<!-- d2l dropdown style version -->
 
-	<select class="dropdown-content list d2l-input-select" 
+	<!-- <select class="dropdown-content list d2l-input-select" 
 		opened="${this._dropdownOpened}" 
 		focus-target="${this._inputTarget}"
 		no-animations 
@@ -358,7 +365,7 @@ class TagPicker extends LitElement {
 				${this._textForItem(item)}
 			</option>
 		`)}
-	</select>
+	</select> -->
 
 	<!-- d2l-dropdown version -->
 	<!-- <d2l-dropdown-button>
