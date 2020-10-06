@@ -1,8 +1,14 @@
 import '@brightspace-ui/core/components/icons/icon.js';
 import '@brightspace-ui/core/components/colors/colors.js';
+import '@brightspace-ui/core/components/dropdown/dropdown-button.js';
 import '@brightspace-ui/core/components/dropdown/dropdown-menu.js';
+import '@brightspace-ui/core/components/menu/menu.js';
+import '@brightspace-ui/core/components/menu/menu-item.js';
 import '@brightspace-ui/core/components/inputs/input-styles.js';
 import '@brightspace-ui/core/components/inputs/input-select-styles.js';
+import '@brightspace-ui/core/components/tabs/tabs.js';
+import '@brightspace-ui/core/components/tabs/tab-panel.js';
+import '@brightspace-ui/core/components/button/button';
 import { css, html, LitElement } from 'lit-element/lit-element.js';
 // import { sharedStyle } from 'somewhere/sharedStyles.js';
 // import { classMap } from 'lit-html/directives/class-map.js';
@@ -32,7 +38,25 @@ class SkillsLandingPage extends LitElement {
 	render() {
 		return html`
 		<div>
-			<h2>Hello World</h2>
+			<h2>Skills & Standards</h2>
+			<p>A skill is a high-level proficiency that can be acquired, assessed, and refined. A standard is a specific, measurable statement that 
+				describes something a learner is expected to know, understand, and/or be able to do as a result of completing a piece of learning</p>
+			<d2l-tabs>
+				<d2l-tab-panel text="Skills">
+					<d2l-button primary="true">Import Skills</d2l-button>
+					<d2l-dropdown-button text="Add">
+						<d2l-dropdown-menu id="dropdown">
+							<d2l-menu label="Skills Options">
+								<d2l-menu-item text="Option 1"></d2l-menu-item>
+								<d2l-menu-item text="Option 2"></d2l-menu-item>
+							</d2l-menu>
+						</d2l-dropdown-menu>
+					</d2l-dropdown-button>
+				</d2l-tab-panel>
+				<d2l-tab-panel text="Standards">
+					Tab content for Standards
+				</d2l-tab-panel>
+			</d2l-tabs>
 		</div>
 		`;
 	}
