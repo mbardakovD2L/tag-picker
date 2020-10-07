@@ -33,6 +33,13 @@ class SkillsLandingPage extends LitElement {
 			width: 300px;
 			margin: 0 20px;
 		}
+		.center-text {
+			text-align: center;
+		}
+		.empty-state {
+			margin: auto;
+			width: 50%;
+		}
 		`; // return an array if you want shared styles as well as your own
 		// e.g. return [sharedStyles, css`host:blah`]
 	}
@@ -66,7 +73,10 @@ class SkillsLandingPage extends LitElement {
 								placeholder="Search...">
 							</d2l-input-search>
 						</div>
-						<!-- content goes here -->
+						<div class="empty-state">
+							<h4 class="center-text">There's nothing here...</h4>
+							<p class="center-text">Import or add some skills to begin.</p>
+						</div>
 					</div>
 				</d2l-tab-panel>
 				<d2l-tab-panel text="Standards">
