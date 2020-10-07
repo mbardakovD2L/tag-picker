@@ -9,6 +9,7 @@ import '@brightspace-ui/core/components/inputs/input-select-styles.js';
 import '@brightspace-ui/core/components/tabs/tabs.js';
 import '@brightspace-ui/core/components/tabs/tab-panel.js';
 import '@brightspace-ui/core/components/button/button';
+import '@brightspace-ui/core/components/inputs/input-search.js';
 import { css, html, LitElement } from 'lit-element/lit-element.js';
 // import { sharedStyle } from 'somewhere/sharedStyles.js';
 // import { classMap } from 'lit-html/directives/class-map.js';
@@ -25,7 +26,13 @@ class SkillsLandingPage extends LitElement {
 
 	static get styles() {
 		return css`
-		:host {}
+		.input-search {
+			display: inline-block;
+			position: absolute;
+			right: 0;
+			width: 300px;
+			margin: 0 20px;
+		}
 		`; // return an array if you want shared styles as well as your own
 		// e.g. return [sharedStyles, css`host:blah`]
 	}
@@ -43,15 +50,24 @@ class SkillsLandingPage extends LitElement {
 				describes something a learner is expected to know, understand, and/or be able to do as a result of completing a piece of learning</p>
 			<d2l-tabs>
 				<d2l-tab-panel text="Skills">
-					<d2l-button primary="true">Import Skills</d2l-button>
-					<d2l-dropdown-button text="Add">
-						<d2l-dropdown-menu id="dropdown">
-							<d2l-menu label="Skills Options">
-								<d2l-menu-item text="Option 1"></d2l-menu-item>
-								<d2l-menu-item text="Option 2"></d2l-menu-item>
-							</d2l-menu>
-						</d2l-dropdown-menu>
-					</d2l-dropdown-button>
+					<div class="header-bar">
+						<d2l-button primary="true">Import Skills</d2l-button>
+						<d2l-dropdown-button text="Add">
+							<d2l-dropdown-menu id="dropdown">
+								<d2l-menu label="Skills Options">
+									<d2l-menu-item text="Option 1"></d2l-menu-item>
+									<d2l-menu-item text="Option 2"></d2l-menu-item>
+								</d2l-menu>
+							</d2l-dropdown-menu>
+						</d2l-dropdown-button>
+						<div class="input-search">
+							<d2l-input-search
+								label="Search"
+								placeholder="Search...">
+							</d2l-input-search>
+						</div>
+						<!-- content goes here -->
+					</div>
 				</d2l-tab-panel>
 				<d2l-tab-panel text="Standards">
 					Tab content for Standards
