@@ -40,6 +40,9 @@ class SkillsLandingPage extends LitElement {
 			margin: auto;
 			width: 50%;
 		}
+		.empty-image {
+			max-width: 100%;
+		}
 		`; // return an array if you want shared styles as well as your own
 		// e.g. return [sharedStyles, css`host:blah`]
 	}
@@ -74,7 +77,7 @@ class SkillsLandingPage extends LitElement {
 							</d2l-input-search>
 						</div>
 						<div class="empty-state">
-						<!-- <img src="desert.png" alt="A picture of a desert during the day, with some cacti."></img> -->
+						<img src="https://github.com/mbardakovD2L/tag-picker/blob/skills-scaffolding/desert.png?raw=true" class="empty-image" alt="A picture of a desert during the day, with some cacti."></img>
 							<h4 class="center-text">There's nothing here...</h4>
 							<p class="center-text">Import or add some skills to begin.</p>
 						</div>
