@@ -74,6 +74,7 @@ class SkillsLandingPage extends LitElement {
 							</d2l-input-search>
 						</div>
 						<div class="empty-state">
+						<!-- <img src="desert.png" alt="A picture of a desert during the day, with some cacti."></img> -->
 							<h4 class="center-text">There's nothing here...</h4>
 							<p class="center-text">Import or add some skills to begin.</p>
 						</div>
