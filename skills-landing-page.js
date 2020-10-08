@@ -77,7 +77,7 @@ class SkillsLandingPage extends LitElement {
 							</d2l-input-search>
 						</div>
 						<div class="empty-state">
-						<img src="https://github.com/mbardakovD2L/tag-picker/blob/skills-scaffolding/desert.png?raw=true" class="empty-image" alt="A picture of a desert during the day, with some cacti."></img>
+						<img src="https://raw.githubusercontent.com/mbardakovD2L/tag-picker/574d63f033f8af06c92e971779e424be22e43d3c/Desert_Road.svg" class="empty-image" alt="A picture of a desert during the day, with some cacti."></img>
 							<h4 class="center-text">There's nothing here...</h4>
 							<p class="center-text">Import or add some skills to begin.</p>
 						</div>
