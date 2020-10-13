@@ -10,6 +10,7 @@ import '@brightspace-ui/core/components/tabs/tabs.js';
 import '@brightspace-ui/core/components/tabs/tab-panel.js';
 import '@brightspace-ui/core/components/button/button';
 import '@brightspace-ui/core/components/inputs/input-search.js';
+import '@brightspace-ui/core/components/dialog/dialog.js';
 import { css, html, LitElement } from 'lit-element/lit-element.js';
 // import { sharedStyle } from 'somewhere/sharedStyles.js';
 // import { classMap } from 'lit-html/directives/class-map.js';
@@ -20,6 +21,9 @@ class SkillsLandingPage extends LitElement {
 		return {
 			prop1: {
 				type: String
+			},
+			dialog: {
+				type: Object
 			},
 		};
 	}
@@ -50,10 +54,17 @@ class SkillsLandingPage extends LitElement {
 	constructor() {
 		super();
 		this.prop1 = '';
+		this.dialogIsOpened = false;
 	}
 
 	render() {
 		return html`
+		<d2l-dialog id="dialog" title-text="Dialog Title">
+			<div>Some dialog content</div>
+			<d2l-button slot="footer" primary data-dialog-action="done">Done</d2l-button>
+			<d2l-button slot="footer" data-dialog-action>Cancel</d2l-button>
+		</d2l-dialog>
+
 		<div>
 			<h2>Skills & Standards</h2>
 			<p>A skill is a high-level proficiency that can be acquired, assessed, and refined. A standard is a specific, measurable statement that 
@@ -61,7 +72,7 @@ class SkillsLandingPage extends LitElement {
 			<d2l-tabs>
 				<d2l-tab-panel text="Skills">
 					<div class="header-bar">
-						<d2l-button primary="true">Import Skills</d2l-button>
+						<d2l-button primary="true" @click="${this.openDialog}">Import Skills</d2l-button>
 						<d2l-dropdown-button text="Add">
 							<d2l-dropdown-menu id="dropdown">
 								<d2l-menu label="Skills Options">
@@ -91,16 +102,15 @@ class SkillsLandingPage extends LitElement {
 		`;
 	}
 
-	// observers: [
-	// 	'_onValuesChanged(values.splices)'
-	// ],
+	openDialog() {
+		this.dialog.open().then((res) => {
+			console.log('dialog closed with response: ', res);
+		});
+	}
 
-	// listeners: {
-	// 	'tap': '_handleTap'
-	// },
-
-	ready() {
-		console.log('initialized skills-landing-page with ', this.prop1);
+	firstUpdated() {
+		this.dialog = document.querySelector('skills-landing-page').shadowRoot.querySelector('#dialog');
+		console.log('got dialog: ', this.dialog);
 	}
 
 	updated(changedProperties) {
