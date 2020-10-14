@@ -11,6 +11,7 @@ import '@brightspace-ui/core/components/tabs/tab-panel.js';
 import '@brightspace-ui/core/components/button/button';
 import '@brightspace-ui/core/components/inputs/input-search.js';
 import '@brightspace-ui/core/components/dialog/dialog.js';
+import './dialog.js';
 import { css, html, LitElement } from 'lit-element/lit-element.js';
 // import { sharedStyle } from 'somewhere/sharedStyles.js';
 // import { classMap } from 'lit-html/directives/class-map.js';
@@ -59,11 +60,7 @@ class SkillsLandingPage extends LitElement {
 
 	render() {
 		return html`
-		<d2l-dialog id="dialog" title-text="Dialog Title">
-			<div>Some dialog content</div>
-			<d2l-button slot="footer" primary data-dialog-action="done">Done</d2l-button>
-			<d2l-button slot="footer" data-dialog-action>Cancel</d2l-button>
-		</d2l-dialog>
+		<skills-dialog></skills-dialog>
 
 		<div>
 			<h2>Skills & Standards</h2>
@@ -103,13 +100,13 @@ class SkillsLandingPage extends LitElement {
 	}
 
 	openDialog() {
-		this.dialog.open().then((res) => {
+		return this.dialog.open().then((res) => {
 			console.log('dialog closed with response: ', res);
 		});
 	}
 
 	firstUpdated() {
-		this.dialog = document.querySelector('skills-landing-page').shadowRoot.querySelector('#dialog');
+		this.dialog = document.querySelector('skills-landing-page').shadowRoot.querySelector('skills-dialog');
 		console.log('got dialog: ', this.dialog);
 	}
 
