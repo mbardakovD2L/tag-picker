@@ -43,7 +43,7 @@ class SkillsLandingPage extends LitElement {
 		}
 		.empty-state {
 			margin: auto;
-			width: 50%;
+			width: 550px;
 		}
 		.empty-image {
 			max-width: 100%;
@@ -63,9 +63,7 @@ class SkillsLandingPage extends LitElement {
 		<skills-dialog></skills-dialog>
 
 		<div>
-			<h2>Skills & Standards</h2>
-			<p>A skill is a high-level proficiency that can be acquired, assessed, and refined. A standard is a specific, measurable statement that 
-				describes something a learner is expected to know, understand, and/or be able to do as a result of completing a piece of learning</p>
+			<h2>Manage Skills & Outcomss</h2>
 			<d2l-tabs>
 				<d2l-tab-panel text="Skills">
 					<div class="header-bar">
@@ -85,13 +83,14 @@ class SkillsLandingPage extends LitElement {
 							</d2l-input-search>
 						</div>
 						<div class="empty-state">
-						<img src="https://raw.githubusercontent.com/mbardakovD2L/tag-picker/574d63f033f8af06c92e971779e424be22e43d3c/Desert_Road.svg" class="empty-image" alt="A picture of a desert during the day, with some cacti."></img>
-							<h4 class="center-text">There's nothing here...</h4>
-							<p class="center-text">Import or add some skills to begin.</p>
+						<img src="https://raw.githubusercontent.com/mbardakovD2L/tag-picker/574d63f033f8af06c92e971779e424be22e43d3c/Desert_Road.svg"
+							class="empty-image" alt="A picture of a desert during the day, with some cacti."></img>
+							<h4 class="center-text">Add skills for your learners to develop!</h4>
+							<p class="center-text">Skills represent the high-level areas of growth that learners are developing across all their learning.</p>
 						</div>
 					</div>
 				</d2l-tab-panel>
-				<d2l-tab-panel text="Standards">
+				<d2l-tab-panel text="Outcomes">
 					Tab content for Standards
 				</d2l-tab-panel>
 			</d2l-tabs>
