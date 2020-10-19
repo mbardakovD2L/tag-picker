@@ -1,6 +1,7 @@
 import '@brightspace-ui/core/components/icons/icon.js';
 import '@brightspace-ui/core/components/colors/colors.js';
 import '@brightspace-ui/core/components/dropdown/dropdown-button.js';
+import '@brightspace-ui/core/components/dropdown/dropdown-button-subtle.js';
 import '@brightspace-ui/core/components/dropdown/dropdown-menu.js';
 import '@brightspace-ui/core/components/menu/menu.js';
 import '@brightspace-ui/core/components/menu/menu-item.js';
@@ -32,21 +33,23 @@ class SkillsLandingPage extends LitElement {
 	static get styles() {
 		return css`
 		.input-search {
-			display: inline-block;
-			position: absolute;
-			right: 0;
+			float: right;
 			width: 300px;
-			margin: 0 20px;
+			margin: 0 10px 0 0;
 		}
 		.center-text {
 			text-align: center;
 		}
 		.empty-state {
 			margin: auto;
-			width: 550px;
+			width: 50%;
 		}
 		.empty-image {
 			max-width: 100%;
+		}
+		.sort-dropdown {
+			float:right;
+			margin: 0 10px 0 0;
 		}
 		`; // return an array if you want shared styles as well as your own
 		// e.g. return [sharedStyles, css`host:blah`]
@@ -63,16 +66,16 @@ class SkillsLandingPage extends LitElement {
 		<skills-dialog></skills-dialog>
 
 		<div>
-			<h2>Manage Skills & Outcomss</h2>
+			<h2>${this.localize('manage_skills_title')}</h2>
 			<d2l-tabs>
-				<d2l-tab-panel text="Skills">
+				<d2l-tab-panel text="${this.localize('skills')}">
 					<div class="header-bar">
-						<d2l-button primary="true" @click="${this.openDialog}">Import Skills</d2l-button>
-						<d2l-dropdown-button text="Add">
-							<d2l-dropdown-menu id="dropdown">
-								<d2l-menu label="Skills Options">
-									<d2l-menu-item text="Option 1"></d2l-menu-item>
-									<d2l-menu-item text="Option 2"></d2l-menu-item>
+						<d2l-button primary="true" @click="${this.openDialog}">${this.localize('import_skills')}</d2l-button>
+						<d2l-dropdown-button text="${this.localize('add')}">
+							<d2l-dropdown-menu>
+								<d2l-menu label="${this.localize('skills_options')}">
+									<d2l-menu-item text="${this.localize('new_skill')}"></d2l-menu-item>
+									<d2l-menu-item text="${this.localize('new_skill_category')}"></d2l-menu-item>
 								</d2l-menu>
 							</d2l-dropdown-menu>
 						</d2l-dropdown-button>
@@ -82,6 +85,14 @@ class SkillsLandingPage extends LitElement {
 								placeholder="Search...">
 							</d2l-input-search>
 						</div>
+						<d2l-dropdown-button-subtle text="${this.localize('sort')}" class="sort-dropdown">
+							<d2l-dropdown-menu>
+								<d2l-menu label="${this.localize('sort_options')}">
+									<d2l-menu-item text="${this.localize('new_skill')}"></d2l-menu-item>
+									<d2l-menu-item text="${this.localize('new_skill_category')}"></d2l-menu-item>
+								</d2l-menu>
+							</d2l-dropdown-menu>
+						</d2l-dropdown-button-subtle>
 						<div class="empty-state">
 						<img src="https://raw.githubusercontent.com/mbardakovD2L/tag-picker/574d63f033f8af06c92e971779e424be22e43d3c/Desert_Road.svg"
 							class="empty-image" alt="A picture of a desert during the day, with some cacti."></img>
@@ -117,6 +128,22 @@ class SkillsLandingPage extends LitElement {
 		// 	console.log('activeValueIndex changed from ', changedProperties.get('_activeValueIndex'), ' to ', this._activeValueIndex);
 		// 	this._activeValueIndexChanged(this._activeValueIndex);
 		// }
+	}
+
+	localize(str) {
+		const translationTable = [];
+		translationTable['add'] = 'Add';
+		translationTable['import_skills'] = 'Import Skills';
+		translationTable['manage_skills_title'] = 'Manage Skills and Outcomes';
+		translationTable['new_skill'] = 'New Skill';
+		translationTable['new_skill_category'] = 'New Skill Category';
+		translationTable['outcomes'] = 'Outcomes';
+		translationTable['search'] = 'Search';
+		translationTable['skills'] = 'Skills';
+		translationTable['skills_options'] = 'Skills Options';
+		translationTable['sort'] = 'Sort';
+		translationTable['sort_options'] = 'Sort Options';
+		return translationTable[str] || `${str} (not localized)`;
 	}
 }
 
